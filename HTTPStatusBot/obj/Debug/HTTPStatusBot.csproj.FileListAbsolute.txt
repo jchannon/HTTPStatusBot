@@ -1,0 +1,14 @@
+Z:\jonathan\RiderProjects\HTTPStatusBot\HTTPStatusBot\obj\Debug\HTTPStatusBot.exe
+Z:\jonathan\RiderProjects\HTTPStatusBot\HTTPStatusBot\bin\Debug\statuscodes.json
+Z:\jonathan\RiderProjects\HTTPStatusBot\HTTPStatusBot\bin\Debug\HTTPStatusBot.exe
+Z:\jonathan\RiderProjects\HTTPStatusBot\HTTPStatusBot\bin\Debug\HTTPStatusBot.pdb
+Z:\jonathan\RiderProjects\HTTPStatusBot\HTTPStatusBot\bin\Debug\Microsoft.DotNet.InternalAbstractions.dll
+Z:\jonathan\RiderProjects\HTTPStatusBot\HTTPStatusBot\bin\Debug\Microsoft.Extensions.DependencyModel.dll
+Z:\jonathan\RiderProjects\HTTPStatusBot\HTTPStatusBot\bin\Debug\Nancy.dll
+Z:\jonathan\RiderProjects\HTTPStatusBot\HTTPStatusBot\bin\Debug\Nancy.Hosting.Self.dll
+Z:\jonathan\RiderProjects\HTTPStatusBot\HTTPStatusBot\bin\Debug\Newtonsoft.Json.dll
+Z:\jonathan\RiderProjects\HTTPStatusBot\HTTPStatusBot\bin\Debug\Nancy.xml
+Z:\jonathan\RiderProjects\HTTPStatusBot\HTTPStatusBot\bin\Debug\Nancy.Hosting.Self.xml
+Z:\jonathan\RiderProjects\HTTPStatusBot\HTTPStatusBot\bin\Debug\Newtonsoft.Json.xml
+Z:\jonathan\RiderProjects\HTTPStatusBot\HTTPStatusBot\obj\Debug\HTTPStatusBot.csprojResolveAssemblyReference.cache
+Z:\jonathan\RiderProjects\HTTPStatusBot\HTTPStatusBot\obj\Debug\HTTPStatusBot.pdb
