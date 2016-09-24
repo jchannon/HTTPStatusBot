@@ -22,3 +22,7 @@
 /Users/jonathan/RiderProjects/HTTPStatusBot/HTTPStatusBot/bin/Debug/System.IdentityModel.Tokens.Jwt.dll
 /Users/jonathan/RiderProjects/HTTPStatusBot/HTTPStatusBot/bin/Debug/System.Net.Http.Formatting.dll
 /Users/jonathan/RiderProjects/HTTPStatusBot/HTTPStatusBot/bin/Debug/System.Web.Http.dll
+/Users/jonathan/RiderProjects/HTTPStatusBot/HTTPStatusBot/bin/Debug/HTTPStatusBot.dll.mdb
+/Users/jonathan/RiderProjects/HTTPStatusBot/HTTPStatusBot/bin/Debug/HTTPStatusBot.dll
+/Users/jonathan/RiderProjects/HTTPStatusBot/HTTPStatusBot/obj/Debug/HTTPStatusBot.dll
+/Users/jonathan/RiderProjects/HTTPStatusBot/HTTPStatusBot/obj/Debug/HTTPStatusBot.dll.mdb
