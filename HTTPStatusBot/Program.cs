@@ -8,7 +8,10 @@
         static void Main(string[] args)
         {
 
-            using (var host = new NancyHost(new Uri("http://localhost:1234")))
+            var config = new HostConfiguration();
+            config.UrlReservations.CreateAutomatically = true;
+            config.UrlReservations.User = "Everyone";
+            using (var host = new NancyHost(config, new Uri("http://localhost:1234")))
             {
                 host.Start();
                 Console.WriteLine("Running on http://localhost:1234");
