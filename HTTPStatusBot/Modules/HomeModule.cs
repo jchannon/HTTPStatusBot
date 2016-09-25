@@ -14,6 +14,8 @@ namespace HTTPStatusBot.Modules
         {
             this.RequiresBotAuthentication();
 
+            Get("/", args => "Hi");
+
             Post("/", async _ =>
             {
                 var activity = this.Bind<Activity>();
