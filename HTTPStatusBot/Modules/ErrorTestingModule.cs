@@ -4,7 +4,7 @@
     using Nancy;
     public class ErrorTestingModule : NancyModule
     {
-        public ErrorTestingModule()
+        public ErrorTestingModule() : base("/errors")
         {
             Get("/", _ =>
             {
