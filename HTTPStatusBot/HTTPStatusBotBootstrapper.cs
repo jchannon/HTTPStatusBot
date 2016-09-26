@@ -11,11 +11,12 @@
         {
             base.ApplicationStartup(container, pipelines);
 
-            pipelines.OnError += (ctx, ex) =>
+            pipelines.OnError += (nancyContext, exception) =>
             {
-                //Console.Error(ex.ToString());
+                Console.Error.WriteLine(exception);
                 return null;
             };
+
         }
     }
 }
