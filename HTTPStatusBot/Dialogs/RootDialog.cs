@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Dynamic;
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
@@ -10,12 +11,22 @@
     using Microsoft.Bot.Builder.Dialogs;
     using Microsoft.Bot.Builder.Luis;
     using Microsoft.Bot.Builder.Luis.Models;
+    using System.Reflection;
 
     [Serializable]
     [LuisModel("1ea0d2b8-0db6-4cd6-b5c6-1f1923927826", "3eff2c8256484419b57890e80c18578d")]
     public class RootDialog : LuisDialog<object>
     {
-        private static readonly List<StatusCodeInfo> StatusCodeList = SimpleJson.DeserializeObject<List<StatusCodeInfo>>(File.ReadAllText("statuscodes.json"));
+        public static string GetExecutionPath()
+        {
+            var codeBase = typeof(RootDialog).GetTypeInfo().Assembly.CodeBase;
+            var uri = new Uri(codeBase);
+            var path = uri.LocalPath;
+            var root = Path.GetDirectoryName(path);
+            return root;
+        }
+
+        private static readonly List<StatusCodeInfo> StatusCodeList = SimpleJson.DeserializeObject<List<StatusCodeInfo>>(File.ReadAllText(Path.Combine(GetExecutionPath(),"statuscodes.json")));
 
         [LuisIntent("StatusCodeIntent")]
         public async Task HandleStatusCodeIntent(IDialogContext context, LuisResult result)
