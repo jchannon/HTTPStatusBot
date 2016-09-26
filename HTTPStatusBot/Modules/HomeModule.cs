@@ -97,7 +97,7 @@ namespace HTTPStatusBot.Modules
             {
                 //https://github.com/Microsoft/BotBuilder/blob/master/CSharp/Library/Microsoft.Bot.Connector/JwtTokenExtractor.cs#L87
                 //tokenExtractor.GenerateUnauthorizedResponse(actionContext);
-                return true;
+                return false;
             }
 
             var activity = this.Bind<Activity>();
@@ -112,7 +112,7 @@ namespace HTTPStatusBot.Modules
             }
 
             this.Context.CurrentUser = new ClaimsPrincipal(identity);
-            return false;
+            return true;
         }
     }
 }
