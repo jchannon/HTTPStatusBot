@@ -103,7 +103,6 @@
   <ItemGroup>
     <Compile Include="Dialogs\RootDialog.cs" />
     <Compile Include="Extensions\BotExtensions.cs" />
-    <Compile Include="HTTPStatusBotBootstrapper.cs" />
     <Compile Include="Model\StatusCodeInfo.cs" />
     <Compile Include="Modules\ErrorTestingModule.cs" />
     <Compile Include="Modules\HomeModule.cs" />

@@ -27,6 +27,7 @@ namespace HTTPStatusBot.Extensions
         {
             return ctx =>
             {
+                //Has to be run async as calling .Result on the GetIdentityAsync resulted in deadlock
                 var response = Task.Run<Response>(async () => await GetResponse(module, ctx));
                 return response.Result;
             };
