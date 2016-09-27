@@ -1,6 +1,5 @@
 namespace HTTPStatusBot.Extensions
 {
-    using System;
     using System.Collections.Generic;
     using System.Configuration;
     using System.Diagnostics;
@@ -8,7 +7,6 @@ namespace HTTPStatusBot.Extensions
     using System.Threading.Tasks;
     using Microsoft.Bot.Connector;
     using Nancy;
-    using Nancy.Extensions;
     using Nancy.ModelBinding;
 
     public static class BotExtensions
@@ -20,17 +18,7 @@ namespace HTTPStatusBot.Extensions
 
         public static void RequiresBotAuthentication(this INancyModule module)
         {
-            module.AddBeforeHookOrExecute(AuthenticateBot(module), "Requires Bot Authentication");
-        }
-
-        public static Func<NancyContext, Response> AuthenticateBot(INancyModule module)
-        {
-            return ctx =>
-            {
-                //Has to be run async as calling .Result on the GetIdentityAsync resulted in deadlock
-                var response = Task.Run<Response>(async () => await GetResponse(module, ctx));
-                return response.Result;
-            };
+            module.Before += async (ctx, ct) => await GetResponse(module, ctx);
         }
 
         private static async Task<Response> GetResponse(INancyModule module, NancyContext ctx)
