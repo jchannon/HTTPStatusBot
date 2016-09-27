@@ -21,26 +21,26 @@ namespace HTTPStatusBot.Modules
 
         public HomeModule()
         {
-            // this.RequiresBotAuthentication();
+            this.RequiresBotAuthentication();
 
             Get("/", args => "Hi");
 
             Post("/", async _ =>
             {
 
-                var valid = await this.BotAuthenticationValid();
-                if (!valid)
-                {
-                    return new Response
-                    {
-                        StatusCode = HttpStatusCode.Unauthorized,
-                        Headers =
-                             new Dictionary<string, string>()
-                             {
-                                {"WWW-Authenticate", $"Bearer realm=\"{this.Context.Request.Url.HostName}\""}
-                             }
-                    };
-                }
+                //var valid = await this.BotAuthenticationValid();
+                //if (!valid)
+                //{
+                //    return new Response
+                //    {
+                //        StatusCode = HttpStatusCode.Unauthorized,
+                //        Headers =
+                //             new Dictionary<string, string>()
+                //             {
+                //                {"WWW-Authenticate", $"Bearer realm=\"{this.Context.Request.Url.HostName}\""}
+                //             }
+                //    };
+                //}
 
                 var activity = this.Bind<Activity>();
 
