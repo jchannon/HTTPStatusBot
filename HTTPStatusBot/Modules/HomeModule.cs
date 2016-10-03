@@ -1,10 +1,5 @@
 namespace HTTPStatusBot.Modules
 {
-    using System.Collections.Generic;
-    using System.Configuration;
-    using System.Diagnostics;
-    using System.Security.Claims;
-    using System.Threading.Tasks;
     using Extensions;
     using Microsoft.Bot.Builder.Dialogs;
     using Microsoft.Bot.Connector;
@@ -22,7 +17,7 @@ namespace HTTPStatusBot.Modules
 
             Post("/", async _ =>
             {
-                var activity = this.Bind<Activity>();
+                 var activity = this.Bind<Activity>();
 
                 switch (activity.GetActivityType())
                 {

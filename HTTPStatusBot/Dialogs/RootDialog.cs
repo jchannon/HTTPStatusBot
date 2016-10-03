@@ -98,5 +98,13 @@
             await context.PostAsync(result.Query + " makes no sense!");
             context.Wait(this.MessageReceived);
         }
+
+        [LuisIntent("RESTIntent")]
+        public async Task HandleRestIntent(IDialogContext context, LuisResult result)
+        {
+            await context.PostAsync("Well it all started with a man called Roy....");
+            await context.PostAsync("Actually I don't have the CPU power to explain the difference between REST and HTTP...");
+            context.Wait(this.MessageReceived);
+        }
     }
 }

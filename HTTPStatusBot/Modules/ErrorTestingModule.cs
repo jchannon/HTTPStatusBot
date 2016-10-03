@@ -2,6 +2,7 @@
 {
     using System;
     using Nancy;
+
     public class ErrorTestingModule : NancyModule
     {
         public ErrorTestingModule() : base("/errors")
