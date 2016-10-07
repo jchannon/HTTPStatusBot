@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Runtime.InteropServices.ComTypes;
     using Nancy;
     using Nancy.ErrorHandling;
     using Nancy.Responses;
@@ -28,8 +29,12 @@
                 var error = new  { ErrorMessage = exception.Message, FullException = exception.ToString() };
 
 
-                context.Response = new JsonResponse(error,
+                var response = new JsonResponse(error,
                     this.serializers.FirstOrDefault(x => x.CanSerialize("application/json")), context.Environment);
+
+                response.StatusCode = HttpStatusCode.InternalServerError;
+
+                context.Response = response;
             }
         }
     }
