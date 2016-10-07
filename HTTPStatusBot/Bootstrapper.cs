@@ -10,7 +10,7 @@
             base.ApplicationStartup(container, pipelines);
             pipelines.OnError += (ctx, ex) =>
             {
-                Console.WriteLine(ex);
+                ctx.Items.Add("OnErrorException", ex);
                 return null;
             };
 
