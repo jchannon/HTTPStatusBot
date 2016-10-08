@@ -53,8 +53,8 @@
 
             var plCard = new HeroCard()
             {
-                Title = "I'm a hero card",
-                Subtitle = "Pig Latin Wikipedia Page",
+                Title = $"{statuscodeInfo.code} : {statuscodeInfo.meaning}",
+                Subtitle = statuscodeInfo.description,
                 Images = cardImages
             };
             var plAttachment = plCard.ToAttachment();
