@@ -54,7 +54,7 @@
             var plCard = new HeroCard()
             {
                 Title = $"{statuscodeInfo.code} : {statuscodeInfo.meaning}",
-                Subtitle = statuscodeInfo.description,
+                Text = statuscodeInfo.description,
                 Images = cardImages
             };
             var plAttachment = plCard.ToAttachment();
