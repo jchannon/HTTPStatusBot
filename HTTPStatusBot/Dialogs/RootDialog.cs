@@ -12,6 +12,7 @@
     using Microsoft.Bot.Builder.Luis;
     using Microsoft.Bot.Builder.Luis.Models;
     using System.Reflection;
+    using Microsoft.Bot.Connector;
 
     [Serializable]
     [LuisModel("1ea0d2b8-0db6-4cd6-b5c6-1f1923927826", "3eff2c8256484419b57890e80c18578d")]
@@ -26,7 +27,9 @@
             return root;
         }
 
-        private static readonly List<StatusCodeInfo> StatusCodeList = SimpleJson.DeserializeObject<List<StatusCodeInfo>>(File.ReadAllText(Path.Combine(GetExecutionPath(),"statuscodes.json")));
+        private static readonly List<StatusCodeInfo> StatusCodeList =
+            SimpleJson.DeserializeObject<List<StatusCodeInfo>>(
+                File.ReadAllText(Path.Combine(GetExecutionPath(), "statuscodes.json")));
 
         [LuisIntent("StatusCodeIntent")]
         public async Task HandleStatusCodeIntent(IDialogContext context, LuisResult result)
@@ -44,9 +47,23 @@
                 context.Wait(this.MessageReceived);
                 return;
             }
+            var reply = context.MakeMessage();
 
-            await context.PostAsync("I believe what you are looking for is:");
-            await context.PostAsync($"Status Code : {statuscodeInfo.code} Meaning : {statuscodeInfo.meaning} Description : {statuscodeInfo.description} {statuscodeInfo.imageurl}");
+            var cardImages = new List<CardImage> { new CardImage(url: statuscodeInfo.imageurl) };
+
+            var plCard = new HeroCard()
+            {
+                Title = "I'm a hero card",
+                Subtitle = "Pig Latin Wikipedia Page",
+                Images = cardImages
+            };
+            var plAttachment = plCard.ToAttachment();
+            reply.Attachments.Add(plAttachment);
+
+            await context.PostAsync(reply);
+
+            // await context.PostAsync("I believe what you are looking for is:");
+            // await context.PostAsync($"Status Code : {statuscodeInfo.code} Meaning : {statuscodeInfo.meaning} Description : {statuscodeInfo.description} {statuscodeInfo.imageurl}");
 
             context.Wait(this.MessageReceived);
         }
@@ -69,8 +86,9 @@
 
             foreach (var statuscodeInfo in results)
             {
-                await context.PostAsync($"Status Code : {statuscodeInfo.code} Meaning : {statuscodeInfo.meaning} Description : {statuscodeInfo.description} {statuscodeInfo.imageurl}");
-
+                await
+                    context.PostAsync(
+                        $"Status Code : {statuscodeInfo.code} Meaning : {statuscodeInfo.meaning} Description : {statuscodeInfo.description} {statuscodeInfo.imageurl}");
             }
 
             context.Wait(this.MessageReceived);
@@ -103,7 +121,9 @@
         public async Task HandleRestIntent(IDialogContext context, LuisResult result)
         {
             await context.PostAsync("Well it all started with a man called Roy....");
-            await context.PostAsync("Actually I don't have the CPU power to explain the difference between REST and HTTP...");
+            await
+                context.PostAsync(
+                    "Actually I don't have the CPU power to explain the difference between REST and HTTP...");
             context.Wait(this.MessageReceived);
         }
     }
